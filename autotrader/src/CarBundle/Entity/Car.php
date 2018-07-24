@@ -2,6 +2,7 @@
 
 namespace CarBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,16 +23,16 @@ class Car
     private $id;
 
     /**
-     * @var string
+     * @var Model
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="CarBundle\Entity\Model", inversedBy="cars")
      */
-    private $name;
+    private $model;
 
     /**
-     * @var string
+     * @var Make
      *
-     * @ORM\Column(name="make", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="CarBundle\Entity\Make", inversedBy="cars")
      */
     private $make;
 
@@ -87,30 +88,6 @@ class Car
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name.
-     *
-     * @param string $name
-     *
-     * @return Car
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name.
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**
@@ -207,5 +184,29 @@ class Car
     public function getNavigation()
     {
         return $this->navigation;
+    }
+
+    /**
+     * Set model.
+     *
+     * @param \CarBundle\Entity\Make|null $model
+     *
+     * @return Car
+     */
+    public function setModel(\CarBundle\Entity\Make $model = null)
+    {
+        $this->model = $model;
+
+        return $this;
+    }
+
+    /**
+     * Get model.
+     *
+     * @return \CarBundle\Entity\Make|null
+     */
+    public function getModel()
+    {
+        return $this->model;
     }
 }

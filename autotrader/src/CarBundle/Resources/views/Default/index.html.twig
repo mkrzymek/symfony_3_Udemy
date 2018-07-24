@@ -15,10 +15,10 @@ The best cars
         {% for car in cars %}
             <tr>
                 <td>
-                    {{ car.make }}
+                    {{ car.make.name }}
                 </td>
                 <td>
-                    {{ car.name }}
+                    {{ car.model.name }}
                 </td>
                 <td>
                     <a href="{{ url('show_car', {id: car.id}) }}">Show details</a>
