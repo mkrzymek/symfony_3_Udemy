@@ -43,6 +43,27 @@ class Car
     private $description;
 
     /**
+     * @var float
+     *
+     * @ORM\Column(name="price", type="decimal", scale=2)
+     */
+    private $price;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="year", type="integer")
+     */
+    private $year;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="navigation", type="boolean")
+     */
+    private $navigation;
+
+    /**
      * @return string
      */
     public function getDescription()
@@ -114,5 +135,77 @@ class Car
     public function getMake()
     {
         return $this->make;
+    }
+
+    /**
+     * Set price.
+     *
+     * @param string $price
+     *
+     * @return Car
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price.
+     *
+     * @return string
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set year.
+     *
+     * @param int $year
+     *
+     * @return Car
+     */
+    public function setYear($year)
+    {
+        $this->year = $year;
+
+        return $this;
+    }
+
+    /**
+     * Get year.
+     *
+     * @return int
+     */
+    public function getYear()
+    {
+        return $this->year;
+    }
+
+    /**
+     * Set navigation.
+     *
+     * @param bool $navigation
+     *
+     * @return Car
+     */
+    public function setNavigation($navigation)
+    {
+        $this->navigation = $navigation;
+
+        return $this;
+    }
+
+    /**
+     * Get navigation.
+     *
+     * @return bool
+     */
+    public function getNavigation()
+    {
+        return $this->navigation;
     }
 }
