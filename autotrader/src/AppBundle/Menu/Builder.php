@@ -1,5 +1,7 @@
 <?php
 
+namespace AppBundle\Menu;
+
 use Knp\Menu\MenuFactory;
 
 class Builder
