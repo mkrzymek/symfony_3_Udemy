@@ -31,7 +31,7 @@ class DefaultController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isValid()) {
             die('die!');
         }
 
