@@ -4,6 +4,7 @@ namespace CarBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class DefaultController extends Controller
@@ -16,13 +17,14 @@ class DefaultController extends Controller
         $carRepository = $this->getDoctrine()->getRepository('CarBundle:Car');
         $cars = $carRepository->findCarsWithDetails();
         $form = $this->createFormBuilder()
+            ->setMethod('GET')
             ->add('search', TextType::class)
             ->getForm();
 
         return $this->render('CarBundle:Default:index.html.twig',
             [
                 'cars' => $cars,
-//                'form' => $form->createView()
+                'form' => $form->createView()
             ]
         );
     }
