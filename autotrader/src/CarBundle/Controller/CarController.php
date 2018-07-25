@@ -46,7 +46,11 @@ class CarController extends Controller
         $em = $this->getDoctrine()->getManager();
         $car = $em->getRepository('CarBundle:Car')->find($id);
         $result = $dataChecker->checkCar($car);
-        $this->addFlash('success', $result);
+        if ($result) {
+            $this->addFlash('success', 'Car promoted');
+        } else {
+            $this->addFlash('success', 'Car not applicable');
+        }
 
         return $this->redirectToRoute('car_index');
     }

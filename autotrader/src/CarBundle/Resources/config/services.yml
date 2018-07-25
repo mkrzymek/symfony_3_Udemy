@@ -5,3 +5,4 @@ services:
 
     car.data_checker:
         class: CarBundle\Service\DataChecker
+        arguments: ["%require_photos_to_promote_car%"]
