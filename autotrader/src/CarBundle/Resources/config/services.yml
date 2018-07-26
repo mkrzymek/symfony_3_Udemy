@@ -12,3 +12,7 @@ services:
         arguments: ["@car.data_checker", "@doctrine.orm.entity_manager"]
         tags:
             - { name: console.command }
+
+    CarBundle\DataFixtures\:
+        resource: "../../DataFixtures"
+        tags: ['doctrine.fixture.orm']
